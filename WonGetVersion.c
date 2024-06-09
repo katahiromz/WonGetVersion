@@ -108,6 +108,14 @@ DWORD WINAPI WonGetVersionExA(LPOSVERSIONINFOA osver)
         osverx->wReserved = 0;
     }
 
+    if (!osver->dwMajorVersion &&
+        !osver->dwMinorVersion &&
+        !osver->dwBuildNumber &&
+        !osver->dwPlatformId)
+    {
+        return GetVersionExA(osver);
+    }
+
     return TRUE;
 }
 
@@ -136,6 +144,14 @@ DWORD WINAPI WonGetVersionExW(LPOSVERSIONINFOW osver)
         osverx->wSuiteMask = 0x0300;
         osverx->wProductType = 1;
         osverx->wReserved = 0;
+    }
+
+    if (!osver->dwMajorVersion &&
+        !osver->dwMinorVersion &&
+        !osver->dwBuildNumber &&
+        !osver->dwPlatformId)
+    {
+        return GetVersionExW(osver);
     }
 
     return TRUE;
