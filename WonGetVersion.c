@@ -74,7 +74,7 @@ GetSzValue(LPCWSTR pszName, LPWSTR pszValue, DWORD cchValue, LPCWSTR pszDefValue
 
 DWORD WINAPI WonGetVersion(void)
 {
-    return GetDwordValue(L"GetVersion", 0x23F00206);
+    return GetDwordValue(L"GetVersion", 0x4A65000A);
 }
 
 DWORD WINAPI WonGetVersionExA(LPOSVERSIONINFOA osver)
@@ -89,9 +89,9 @@ DWORD WINAPI WonGetVersionExA(LPOSVERSIONINFOA osver)
         return 0;
     }
 
-    osver->dwMajorVersion = GetDwordValue(L"dwMajorVersion", 6);
-    osver->dwMinorVersion = GetDwordValue(L"dwMinorVersion", 2);
-    osver->dwBuildNumber = GetDwordValue(L"dwBuildNumber", 9200);
+    osver->dwMajorVersion = GetDwordValue(L"dwMajorVersion", 10);
+    osver->dwMinorVersion = GetDwordValue(L"dwMinorVersion", 0);
+    osver->dwBuildNumber = GetDwordValue(L"dwBuildNumber", 19045);
     osver->dwPlatformId = GetDwordValue(L"dwPlatformId", 2);
 
     GetSzValue(L"szCSDVersion", szCSDVersion, _countof(szCSDVersion), L"");
@@ -129,9 +129,9 @@ DWORD WINAPI WonGetVersionExW(LPOSVERSIONINFOW osver)
         return 0;
     }
 
-    osver->dwMajorVersion = GetDwordValue(L"dwMajorVersion", 6);
-    osver->dwMinorVersion = GetDwordValue(L"dwMinorVersion", 2);
-    osver->dwBuildNumber = GetDwordValue(L"dwBuildNumber", 9200);
+    osver->dwMajorVersion = GetDwordValue(L"dwMajorVersion", 10);
+    osver->dwMinorVersion = GetDwordValue(L"dwMinorVersion", 0);
+    osver->dwBuildNumber = GetDwordValue(L"dwBuildNumber", 19045);
     osver->dwPlatformId = GetDwordValue(L"dwPlatformId", 2);
 
     GetSzValue(L"szCSDVersion", osver->szCSDVersion, _countof(osver->szCSDVersion), L"");
